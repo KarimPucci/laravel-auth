@@ -18,12 +18,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PageController::class, 'index'])->name('home');
 
+
 Route::middleware(['auth', 'verified'])
     ->name('admin.karim')
     ->prefix('admin')
     ->group(function(){
+        //QUI METTIAMO TUTTE LE ROTTE DELLA CRUD
         Route::get('/',[DashboarCcontroller::class, 'index'])->name('dashboard');
     });
+
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
