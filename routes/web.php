@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DashboarCcontroller;
 use App\Http\Controllers\Guest\PageController;
+use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,13 +19,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PageController::class, 'index'])->name('home');
 
+Route::resource('post', PostController::class);
 
 Route::middleware(['auth', 'verified'])
     ->name('admin.karim')
     ->prefix('admin')
-    ->group(function(){
+    ->group(function () {
         //QUI METTIAMO TUTTE LE ROTTE DELLA CRUD
-        Route::get('/',[DashboarCcontroller::class, 'index'])->name('dashboard');
+        Route::get('/', [DashboarCcontroller::class, 'index'])->name('dashboard');
     });
 
 
@@ -36,4 +38,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
