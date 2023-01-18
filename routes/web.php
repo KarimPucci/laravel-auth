@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PageController::class, 'index'])->name('home');
 
-Route::resource('post', PostController::class);
+
 
 Route::middleware(['auth', 'verified'])
     ->name('admin.karim')
@@ -27,6 +27,7 @@ Route::middleware(['auth', 'verified'])
     ->group(function () {
         //QUI METTIAMO TUTTE LE ROTTE DELLA CRUD
         Route::get('/', [DashboarCcontroller::class, 'index'])->name('dashboard');
+        Route::resource('post', PostController::class);
     });
 
 
