@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Admin\DashboarCcontroller;
 use App\Http\Controllers\Guest\PageController;
-use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\projectController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,7 +27,7 @@ Route::middleware(['auth', 'verified'])
     ->group(function () {
         //QUI METTIAMO TUTTE LE ROTTE DELLA CRUD
         Route::get('/', [DashboarCcontroller::class, 'index'])->name('dashboard');
-        Route::resource('post', PostController::class);
+        Route::resource('project', projectController::class);
     });
 
 
