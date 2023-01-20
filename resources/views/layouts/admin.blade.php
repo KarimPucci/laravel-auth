@@ -34,7 +34,7 @@
                     @include('admin.partials.aside')
                 </div>
                 @endauth
-                <div class="col-11">
+                <div class="@auth col-11 @endauth">
                     <main>
                         @yield('content')
                     </main>
