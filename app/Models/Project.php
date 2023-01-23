@@ -15,7 +15,7 @@ class project extends Model
         $slug = Str::slug($string, '-');
         $original_slug = $slug;
         $c = 1;
-        $exists = project::where('slug,$slug')->first();
+        $exists = project::where('slug',$slug)->first();
         while ($exists) {
             $slug = $original_slug . '-' . $c;
             $exists = project::where('slug', $slug)->first();
